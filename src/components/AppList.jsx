@@ -6,7 +6,7 @@ const AppList = () => {
     const [selectedApp, setSelectedApp] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:8080/chatbot/all')
+        fetch('http://localhost:8080/chatbot/all-apps')
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
@@ -17,8 +17,8 @@ const AppList = () => {
     return (
         <div>
             {appList.map(app =>
-            (<div key={app.termId}><button class='app-btn'
-                onClick={() => setSelectedApp(app.name)}>{app.name}</button></div>))}
+            (<div key={app}><button class='app-btn'
+                onClick={() => setSelectedApp(app)}>{app}</button></div>))}
 
         </div>
     );
