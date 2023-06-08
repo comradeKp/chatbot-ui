@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ActnList.css';
+import './RequestWidget.css';
+
 
 const RequestWidget = (props) => {
     console.log(props);
@@ -11,23 +13,19 @@ const RequestWidget = (props) => {
                 setRsp(data)
             });
     }, []);
-const isurl = props.state.userQuery.toUpperCase().includes("URL")
+    const isurl = rsp.type == "URL"
 
-    return (<div>
+    return (<div className='res-styl'>
         {
-            isurl?<a style={{ color: "#fff",backgroundColor: "rgb(55, 107, 126)",borderRadius: "5px", padding:"5px" ,fontSize: "0.8rem"}}
-            href={rsp.info} target="_blank">{rsp.info}
-            </a>:<p style={{ color: "#fff",backgroundColor: "rgb(55, 107, 126)",borderRadius: "5px", padding:"5px" ,fontSize: "0.8rem"}}>
-            {rsp.info}</p>
+            isurl ? <a style={{color: '#fff'}}className='in-styl'
+                href={rsp.info} target="_blank">{rsp.info}
+            </a> :
+                <p className='in-styl'>
+                    {rsp.info}</p>
         }
     </div>
-        // <div>
-        //     <a style={{ color: "#fff",backgroundColor: "rgb(55, 107, 126)",borderRadius: "5px", padding:"5px" ,fontSize: "0.8rem"}}
-        //     href={rsp.info} target="_blank" rendered = {rsp.type=='URL'}>{rsp.info}
-        //     </a>
-            
-        // </div>
     );
 };
 
 export default RequestWidget;
+

@@ -3,12 +3,11 @@ import AppList from '../components/AppList';
 import ActnList from '../components/ActionList';
 import RequestWidget from '../components/RequestWidget';
 
-const botName = 'ProviderAnalyticsBot';
+const botName = 'EMAPbot';
 
 const config = {
-  initialMessages: [createChatBotMessage(`Hi! I'm ${botName}!. Enter the request in format - app-env-actn (eg: EMAP-SIT-DB)`),
-  createChatBotMessage(
-    "Available Apps :",
+  initialMessages: [createChatBotMessage(`Hello! I'm ${botName}!. Enter your query in format-"app-env-actn" (eg: EMAP-SIT-DB).
+   Available Apps :`,
     {
       widget: 'appList',
     }
@@ -26,10 +25,6 @@ const config = {
     },
     {
       widgetName: 'actnList',
-      widgetFunc: (props) => <ActnList {...props} />,
-    },
-    {
-      widgetName: 'envList',
       widgetFunc: (props) => <ActnList {...props} />,
     },
     {
